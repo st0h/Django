@@ -1,4 +1,4 @@
-Copyright 2023, John W. <tawny.anodes_0l@icloud.com>
+Copyright 2023, John W. <sepia.temps-0h@icloud.com>
 
 Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
 
