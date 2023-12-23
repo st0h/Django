@@ -97,7 +97,7 @@ def view(request,post_id):
 		View the full contents of an individual post.
 	"""
 	post = get_object_or_404(Post,pk=post_id)
-	# Sort the comments in ascending order (i.e. oldest first).
+	# Sort the comments in ascending order.
 	comments = Comment.objects.filter(post__id=post_id).order_by("pub_date")
 	# Count the total number of comments for this post.
 	comment_count = Comment.objects.filter(post__id=post_id).count()
