@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h1>Edit Post: {{ post.title.title }}</h1>
+    <hr>
+    <p>
+        <strong>Note:</strong> Please read the <a href="{% url "posts:tos" %}">privacy policy and terms of service</a>
+        before you proceed. Thanks!
+    </p>
+    {% if messages %}
+    <div class="messages">
+        <ul class="messages">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+    {% if request.user.is_authenticated and request.user.is_active and request.user.is_staff %}
+    <p><a href="https://www.markdownguide.org/" target="_blank">Markdown</a> is enabled!</p>
+    {% endif %}
+    <form action="{% url 'posts:edit' post_id %}" method="POST">
+        {% csrf_token %}
+        {{ form }}
+        <div id="submit_button_container">
+            <input type="submit" name="submit" value="Update this post!">
+        </div>
+        <div id="submit_button_container">
+            <input type="submit" name="submit" value="Delete this post!">
+        </div>
+    </form>
+{% endblock %}

@@ -1,0 +1,310 @@
+body {
+    font-size: 18px;
+    font-family: Tahoma, Verdana, sans-serif;
+    background-color: white;
+    margin: auto;
+    height: 100%;
+}
+
+/* Site-wide navigation menu. */
+nav {
+    background-color: #292929;
+    padding: 8px;
+    text-align: center;
+    margin: 0px;
+}
+
+nav>ul {
+    /* Eliminate the padding from the left side of the list. */
+    padding-inline-start: 0px;
+}
+
+/* Display each list element inline (horizontally), switching to block if necessary. */
+nav>ul>li {
+    display: inline-block;
+    padding: 20px;
+}
+
+/* Customize the appearance of links in the navigation menu. */
+nav a {
+    font-weight: bold;
+    color: white;
+    font-size: 1.25em;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+}
+
+nav a:hover {
+    color: lightblue;
+    text-decoration: underline;
+    transition: 0.5s;
+}
+
+/* Container element for page content. */
+#page_content {
+    padding: 10px;
+    min-height: 500px;
+    /* Ensure that long strings of content don't overflow the page width. */
+    word-break: normal;
+    word-wrap: break-word;
+}
+
+/* Any header elements appearing within the page content section. */
+#page_content :is(h1, h2, h3, h4, h5, h6) {
+    color: #0a0628;
+    font-weight: bold;
+}
+
+/* Horizontal rules appearing within the page content section. */
+#page_content hr {
+    background: linear-gradient(to right, #292929, #0097b2, #292929);
+    height: 4px;
+    border: 0 none;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    border-radius: 4px;
+}
+
+#page_content strong {
+    color: #0a0628;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+#page_content ul {
+    padding-left: 20px;
+}
+
+#page_content blockquote {
+    border-left: 4px solid #0097b2;
+    padding-left: 20px;
+    margin: 10px;
+    margin-left: 6px;
+}
+
+#page_content a {
+    color: #0a0628;
+    font-weight: bold;
+}
+
+#page_content em {
+    color:#0a0628;
+}
+
+/* Place some maximum size restrictions on page content images. */
+#page_content img {
+    max-width: 50%;
+    max-height: 50%;
+    border-radius: 4px;
+}
+
+/* Figures within the page content section. These are a good container for photographs/large images. */
+#page_content figure {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+#page_content figure img {
+    max-width: 50%;
+    max-height: 50%;
+    border: 2px solid #0097b2;
+    border-radius: 4px;
+    margin: 0px;
+    display: flex;
+}
+
+/* Image captions. */
+#page_content figure figcaption {
+    font-style: italic;
+    font-weight: bold;
+    color:#0a0628;
+    margin-top: 20px;
+}
+
+/* Blocks/snippets of code within the page content section. */
+#page_content code {
+    font-family:'Courier New', Courier, monospace;
+    color:#0a0628;
+    font-weight: bold;
+}
+
+/* Hero image for index page. */
+.hero-image {
+    /* Display image with an overlaid gradient for extra contrast. */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/hero.jpeg");
+    /* This colour will be displayed if the image fails to load. */
+    background-color: #292929;
+    min-height: 400px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+/* Text displayed over the hero image. */
+.hero-text {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+/* Page footer. */
+footer {
+    background-color: #292929;
+    padding: 10px;
+    text-align: center;
+    margin: 0px;
+}
+
+footer p {
+    font-weight: bold;
+    color: white;
+    font-size: 1.25em;
+}
+
+/* Privacy/terms of service link in page footer. */
+footer a {
+    color: white;
+    text-decoration: none;
+    transition: 0.5s;
+}
+
+footer a:hover {
+    color: lightblue;
+    text-decoration: underline;
+    transition: 0.5s;
+}
+
+/* Forms appearing within the page content area. */
+#page_content form {
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    font-size: 1.25em;
+    display: block;
+}
+
+#page_content form label {
+    font-weight: bold;
+    color: #0a0628;
+    display: inline-block;
+}
+
+/* Single line text fields. */
+#page_content form input[type=text] {
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 1.25em;
+}
+
+/* Password fields. */
+#page_content form input[type=password] {
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 1.25em;
+}
+
+#page_content form textarea {
+    /* The message area should be fixed in size. */
+    resize: none;
+    width: 100%;
+    height: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 1.25em;
+}
+
+/* Customize the appearance of submit buttons. */
+#page_content form input[type=submit] {
+    background-color: #0a0628;
+    color: white;
+    font-weight: bold;
+    font-size: 1.25em;
+    padding: 8px;
+    border-radius: 4px;
+    width: 50%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#page_content form input[type=submit]:hover {
+    text-decoration: underline;
+}
+
+/* Align the submit button within a flexible container element. */
+#page_content form #submit_button_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#page_content form {
+    min-height: 500px;
+}
+
+/* Flash messages, used for displaying one-time messages with errors, information, etc. */
+div.messages {
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid #0a0628;
+    padding: 4px;
+    margin-bottom: 10px;
+    background-color:#c1b9fc;
+    border-radius: 4px;
+}
+
+div.messages ul {
+    list-style-type: none;
+}
+
+.messages .warning {
+    color:#0a0628;
+    font-weight: bold;
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+.messages .error {
+    font-weight: bold;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    text-decoration: underline;
+}
+
+.messages .info {
+    margin-top: 4px;
+    margin-bottom: 4px;
+    color:#0a0628;
+}
+
+.messages .success {
+    color:#0a0628;
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+/* Container class for pagination elements. */
+.pagination {
+    text-align: center;
+}
+
+/* Form validation errors. */
+.errorlist {
+    font-weight: bold;
+    text-decoration: underline;
+    color:#0a0628;
+}

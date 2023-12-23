@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="{% static 'css/application.css' %}">
+    <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}">
+    <script src="{% static 'javascript/feather.js' %}"></script>
+    <script src="{% static 'javascript/jquery-3.7.1.min.js' %}"></script>
+	<script src="{% static 'javascript/script.js' %}"></script>
+    <title>The Blue Hydrangea</title>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="{% url 'posts:index' %}"><i data-feather="home"></i><span>Home</span></a></li>
+            <li><a href="{% url 'posts:about' %}"><i data-feather="help-circle"></i><span>About The Site</span></a></li>
+            {% if request.user.is_authenticated %}
+            <li><a href="{% url 'posts:logout_view' %}"><i data-feather="log-out"></i><span>Logout</span></a></li>
+			<li><a href="https://www.icloud.com/sharedalbum/#B1252plgj2KaA79"><i data-feather="play"></i><span>Media Gallery</span></a></li>
+			<li><a href="{% url 'posts:view_user_by_username' request.user.username %}"><i data-feather="user"></i><span>Profile</span></a></li>
+            {% else %}
+            <li><a href="{% url 'posts:login_view' %}"><i data-feather="log-in"></i><span>Login</span></a></li>
+			<li><a href="https://www.icloud.com/sharedalbum/#B1252plgj2KaA79"><i data-feather="play"></i><span>Media Gallery</span></a></li>
+            {% endif %}
+        </ul>
+    </nav>
+    <section class="hero-image">
+        <section class="hero-text">
+            <p>The Blue Hydrangea</p>
+        </section>
+    </section>
+    <section id="page_content">
+        {% block content %}
+        {% endblock %}
+    </section>
+    <footer>
+        <p>© {% now "Y" %}, John W. <a href="{% url 'posts:tos' %}">Privacy Policy/Terms of Service.</a></p>
+    </footer>
+
+    <script>
+        feather.replace();
+    </script>
+</body>
+
+</html>

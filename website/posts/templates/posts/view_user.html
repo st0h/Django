@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h1>Profile: {{ user.username }}</h1>
+    <hr>
+    {% if messages %}
+    <div class="messages">
+        <ul class="messages">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+    {% if request.user.is_authenticated and request.user.is_active and perms.auth.view_user %}
+    <p>Name: <strong>{{ user.first_name.capitalize }} {{ user.last_name.capitalize }}</strong></p>
+    <p>E-mail address: <a href="mailto:{{ user.email }}" target="_blank">{{ user.email }}</a></p>
+    <p>Account status: 
+        {% if user.is_active %}
+        <strong>Active.</strong>
+        {% else %}
+        <strong>Inactive.</strong>
+        {% endif %}
+    </p>
+    {% endif %}
+    <p>Last signed in: <strong>{{ user.last_login }}</strong></p>
+    <p>Total posts: <strong>{{ post_count }}</strong></p>
+    <p>Total comments: <strong>{{ comment_count }}</strong></p>
+    {% if request.user.is_authenticated and request.user.is_active and request.user == user %}
+    <p>Password: <a href="{% url 'posts:reset_password' %}">Reset my password</a></p>
+    {% endif %}
+    <p>
+        Latest posts:</strong>
+        <ul>
+            {% for post in posts %}
+            <li><a href="{% url 'posts:view' post.id %}">{{ post.title.title }}</a> - Posted on <strong>{{ post.pub_date }}</strong></li>
+            {% endfor %}
+        </ul>
+    </p>
+{% endblock %}

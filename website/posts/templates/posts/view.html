@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+{% block content %}
+    {% if request.user.is_authenticated and request.user.is_active and perms.posts.change_post and request.user == post.author %}
+    <h1>{{ post.title.title }} <a href="{% url 'posts:edit' post.id %}">(Edit Post)</a></h1> 
+    <hr>
+    {% else %}
+    <h1>{{ post.title.title }}</h1>
+    <hr>
+    {% endif %}
+    {% if messages %}
+    <div class="messages">
+        <ul class="messages">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+    {% if post.author.is_staff %}
+    {{ post.body|safe }}
+    {% else %}
+    {{ post.body|linebreaksbr }}
+    {% endif %}
+    <p>Last updated <strong>{{ post.pub_date }}</strong> by <a href="{% url 'posts:view_user_by_username' post.author.username %}">{{ post.author.username }}</a> 
+        {% if request.user.is_authenticated and request.user.is_active and perms.posts.add_comment %}
+        <a href="{% url 'posts:comment' post.id %}">(Comment)</a>
+        {% endif %}
+    </p>
+    <p><strong>Note:</strong> Comments do <strong>not</strong> necessarily reflect the views of the site's administrators or staff.</p> 
+    <h2 id="comments">Comments ({{ comment_count }}):</h2>
+        {% for comment in page_obj %}
+        <p>
+            {{ comment.body|linebreaksbr }}
+        </p>
+        <p>Posted on <strong>{{ comment.pub_date }}</strong> by <a href="{% url 'posts:view_user_by_username' comment.author.username %}">{{ comment.author.username }}</a>
+        {% if request.user.is_authenticated and request.user.is_active and perms.posts.delete_comment %}
+        <a href="{% url 'posts:delete_comment' comment.id post.id %}">(Delete Comment)</a>
+        {% endif %}
+        </p>
+        <br>
+        {% endfor %}
+	<div class="pagination">
+        	<span class="step-links">
+            		{% if page_obj.has_previous %}
+              		<a href="?page=1">&laquo; First</a>
+	        	<a href="?page={{ page_obj.previous_page_number }}">Previous</a>
+                	{% endif %}
+                	<span class="current">
+                	Page <strong>{{ page_obj.number }}</strong> of <strong>{{ page_obj.paginator.num_pages }}</strong>
+    	        	</span>
+                	{% if page_obj.has_next %}
+                	<a href="?page={{ page_obj.next_page_number }}">Next</a>
+                	<a href="?page={{ page_obj.paginator.num_pages }}">Last &raquo;</a>
+    	        	{% endif %}
+        	</span>
+    	</div>
+{% endblock %}

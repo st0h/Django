@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1>About The Site</h1>
+<hr>
+<p><strong>The Blue Hydrangea</strong> is a platform for creating your own blog or journal! It's based upon a 
+simple content management system <strong>(CMS)</strong> which includes some of the following features:</p>
+<ul>
+    <li><strong>administrators</strong> can create content using <a href="https://www.markdownguide.org">Markdown</a> or regular HTML,</li>
+    <li>a convenient interface for managing accounts and content,</li>
+    <li>a permissions system that can apply to both individual accounts and groups.</li>
+</ul>
+<h2>Frequently Asked Questions</h2>
+<ul>
+    <li><a href="#faq1">How can I get an account here?</a></li>
+</ul>
+<h3 id="faq1">How can I get an account here?</h3>
+<p>After you have read over the <a href="{% url 'posts:tos' %}">privacy policy and terms of service,</a> please <a href="mailto:tawny.anodes_0l@icloud.com">contact me</a> 
+    and include the following information in your e-mail:
+</p>
+<ul>
+    <li>your desired username (this should not exceed <strong>150 characters</strong> and be alphanumeric, e.g. Guest1),</li>
+    <li>your full name,</li>
+    <li>your e-mail address.</li>
+</ul>
+<p>Your full name and e-mail address will <strong>only</strong> be visible to administrators. This information will <strong>not</strong> be 
+    shared without your permission. If your account has been <strong>approved,</strong> you will be contacted with a temporary password which you can then 
+    reset to any value of your choosing!
+</p>
+{% endblock %}
