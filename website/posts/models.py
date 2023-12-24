@@ -7,7 +7,7 @@ class Post(models.Model):
         content.
     """
     title = models.CharField(max_length=100, blank=False)
-    body = models.TextField(max_length=10000, blank=False)
+    body = models.TextField(max_length=25000, blank=False)
     pub_date = models.DateTimeField("Published on")
     # The author field should be linked to the user object that created it.
     author = models.ForeignKey(
