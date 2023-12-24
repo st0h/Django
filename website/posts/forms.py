@@ -6,7 +6,7 @@ class PasswordResetForm(forms.Form):
 
 class CreatePostForm(forms.Form):
 	title = forms.CharField(label="Title (100 characters maximum)",max_length=100,required=True)
-	message = forms.CharField(label="Enter your message here (10,000 characters maximum)",max_length=10000,required=True,widget=forms.Textarea)
+	message = forms.CharField(label="Enter your message here (25,000 characters maximum)",max_length=25000,required=True,widget=forms.Textarea)
 
 class CommentForm(forms.Form):
 	message = forms.CharField(label="Enter your comment here (1,000 characters maximum)", max_length=1000, required=True,widget=forms.Textarea)
