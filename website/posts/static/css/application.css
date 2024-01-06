@@ -17,6 +17,7 @@ nav {
 nav>ul {
     /* Eliminate the padding from the left side of the list. */
     padding-inline-start: 0px;
+    margin: 0px;
 }
 
 /* Display each list element inline (horizontally), switching to block if necessary. */
@@ -37,6 +38,7 @@ nav a {
     justify-content: center;
     align-items: center;
     transition: 0.5s;
+    margin: 0px;
 }
 
 nav a:hover {
@@ -164,15 +166,16 @@ nav a:hover {
 /* Page footer. */
 footer {
     background-color: #292929;
-    padding: 10px;
-    text-align: center;
+    padding: 24px;
+    justify-content: center;
+    align-items: center;
     margin: 0px;
-}
-
-footer p {
     font-weight: bold;
     color: white;
     font-size: 1.25em;
+    display: flex;
+    flex-direction: row;
+    gap: 4px;
 }
 
 /* Privacy/terms of service link in page footer. */
