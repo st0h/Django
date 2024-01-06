@@ -43,7 +43,6 @@ nav a {
 
 nav a:hover {
     color: lightblue;
-    text-decoration: underline;
     transition: 0.5s;
     transform: scale(1.25);
 }
@@ -183,12 +182,13 @@ footer a {
     color: white;
     text-decoration: none;
     transition: 0.5s;
+    font-size: 1em;
 }
 
 footer a:hover {
     color: lightblue;
-    text-decoration: underline;
     transition: 0.5s;
+    transform:scale(1.25);
 }
 
 /* Forms appearing within the page content area. */
