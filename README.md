@@ -21,11 +21,14 @@ must be created at **website/website/settings.py** before you proceed. The setti
 to your own installation and web server software, so is not included with this release. Check out 
 the [Django](https://djangoproject.com) tutorials to get started on creating your own!
 
-Once ready, run the following commands in a terminal to initialize the app's database:
+Once ready, run the following commands in a terminal to copy the app's static files to the directory specified:
+
 ```
     cd website
-    python3 manage.py migrate
+    python3 manage.py collectstatic
 ```
+
+Next, initialize the database:
 
 You will be notified if the database has been initialized successfully. After that, you can create an administrator
 account by running the following:
