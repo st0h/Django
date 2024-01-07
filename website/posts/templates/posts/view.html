@@ -4,7 +4,7 @@
     <h1>{{ post.title.title }} <a href="{% url 'posts:edit' post.id %}">(Edit Post)</a></h1> 
     <hr>
     {% else %}
-    <h1>{{ post.title.title }}</h1>
+    <h2>{{ post.title.title }}</h2>
     <hr>
     {% endif %}
     {% if messages %}
