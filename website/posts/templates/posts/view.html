@@ -26,8 +26,8 @@
         <a href="{% url 'posts:comment' post.id %}">(Comment)</a>
         {% endif %}
     </p>
-    <p><strong>Note:</strong> Comments do <strong>not</strong> necessarily reflect the views of the site's administrators or staff.</p> 
-    <h2 id="comments">Comments ({{ comment_count }}):</h2>
+    <p><strong>Note:</strong> Comments are the responsibility of their owners and do <strong>not</strong> necessarily reflect the views of the site's administrators.</p>
+	<h2 id="comments">Comments ({{ comment_count }}):</h2>
         {% for comment in page_obj %}
         <p>
             {{ comment.body|linebreaksbr }}
