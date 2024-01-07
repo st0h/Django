@@ -1,6 +1,6 @@
 # The Blue Hydrangea
 
-This project contains the code and assets for my blog/journal, [The Blue Hydrangea.](https://hydrangea.sytes.net)
+This project contains the code and assets for my BBS, [The Blue Hydrangea.](https://hydrangea.sytes.net)
 It makes use of the great open-source web framework [Django,](https://www.djangoproject.com/) as well as its 
 companion server software, [Daphne,](https://docs.djangoproject.com/en/4.2/howto/deployment/asgi/daphne/) to allow 
 one to easily create a site where users can post content and interact!
