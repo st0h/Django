@@ -30,6 +30,10 @@ Once ready, run the following commands in a terminal to copy the app's static fi
 
 Next, initialize the database:
 
+```
+	python3 manage.py migrate
+```
+
 You will be notified if the database has been initialized successfully. After that, you can create an administrator
 account by running the following:
 
