@@ -24,8 +24,8 @@ the [Django](https://djangoproject.com) tutorials to get started on creating you
 Once ready, run the following commands in a terminal to copy the app's static files to the directory specified:
 
 ```
-    cd website
-    python3 manage.py collectstatic
+	cd website
+	python3 manage.py collectstatic
 ```
 
 Next, initialize the database:
@@ -38,13 +38,13 @@ You will be notified if the database has been initialized successfully. After th
 account by running the following:
 
 ```
-    python3 manage.py createsuperuser
+	python3 manage.py createsuperuser
 ```
 
 Finally, launch the application by running the following:
 
 ```
-    daphne website.asgi:application --port=9000
+	daphne website.asgi:application --port=9000
 ```
 
 The port number in the above example can be substituted for any available port on your system. It is 
